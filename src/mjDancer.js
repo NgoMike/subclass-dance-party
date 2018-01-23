@@ -1,5 +1,4 @@
 var makeMJDancer = function(top, left, timeBetweenSteps, rotate) {
-  // debugger;
   makeDancer.call(this, 800, -50, timeBetweenSteps);
   this.oldStep = makeDancer.prototype.step;
   this.$node = $('<img src="./gifs/MOONWALK.gif" class="MJ" MJAlt">');
@@ -11,8 +10,14 @@ makeMJDancer.prototype = Object.create(makeDancer.prototype);
 makeMJDancer.prototype.constructor = makeMJDancer;
 
 makeMJDancer.prototype.step = function() {
-  // debugger;
   this.oldStep();
   this.$node.css('top', '');
-  this.$node.animate({bottom: '800px'}, 1500, 'linear');
+  this.$node.animate({bottom: '800px'}, 2000, 'linear');
+};
+
+makeMJDancer.prototype.lineUp = function() {
+  var styleSettings = {
+    top: 400
+  };
+  this.$node.css(styleSettings);
 };

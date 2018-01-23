@@ -86,5 +86,20 @@ $(document).ready(function() {
     window.dancers.push(cat);
     $('body').append(cat.$node);
   });
+
+  $(document).mousemove(function(event) {
+    $('.carlton').css('left', (event.pageX - 150) + 'px');
+    $('.carlton').css('top', (event.pageY - 150) + 'px');
+  });
+
+  $('.lineUp').on('click', function(event) {
+    debugger;
+    // $('.line').css('display', 'inline-block');
+    console.log(window.dancers);
+    window.dancers.forEach(function(dancer, i) {
+      console.log('inside', dancer, i);
+      dancer.lineUp(i);
+    });
+  });
 });
 
