@@ -12,12 +12,5 @@ makeMJDancer.prototype.constructor = makeMJDancer;
 makeMJDancer.prototype.step = function() {
   this.oldStep();
   this.$node.css('top', '');
-  this.$node.animate({bottom: '800px'}, 2000, 'linear');
-};
-
-makeMJDancer.prototype.lineUp = function() {
-  var styleSettings = {
-    top: 400
-  };
-  this.$node.css(styleSettings);
+  this.$node.animate({bottom: '1000px'}, 4000, 'linear');
 };

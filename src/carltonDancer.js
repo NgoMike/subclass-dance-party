@@ -10,12 +10,5 @@ makeCarltonDancer.prototype.constructor = makeCarltonDancer;
 
 makeCarltonDancer.prototype.step = function() {
   this.oldStep();
-  this.$node.slideToggle(1000);
-};
-
-makeCarltonDancer.prototype.lineUp = function() {
-  var styleSettings = {
-    top: 200
-  };
-  this.$node.css(styleSettings);
+  this.$node.slideToggle(2000);
 };

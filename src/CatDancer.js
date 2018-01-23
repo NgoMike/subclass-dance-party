@@ -9,12 +9,5 @@ makeCatDancer.prototype = Object.create(makeDancer.prototype);
 makeCatDancer.prototype.constructor = makeCatDancer;
 makeCatDancer.prototype.step = function() {
   this.oldStep();
-  this.$node.fadeToggle();
-};
-
-makeCatDancer.prototype.lineUp = function() {
-  var styleSettings = {
-    top: 600
-  };
-  this.$node.css(styleSettings);
+  this.$node.fadeToggle(1000);
 };

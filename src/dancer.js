@@ -19,9 +19,21 @@ makeDancer.prototype.setPosition = function(top, left) {
   this.$node.css(styleSettings);
 };
 
-makeDancer.prototype.lineUp = function(i) {
+makeDancer.prototype.lineUp = function() {
+  var left = $('body').width() * Math.random();
   var styleSettings = {
-    top: 500
+    top: 400,
+    left: left,
+  };
+  this.top = 400;
+  this.left = left;
+  this.$node.css(styleSettings);
+};
+
+makeDancer.prototype.partnerUp = function() {
+  this.step();
+  var styleSettings = {
+    transform: 'rotate(180deg)'
   };
   this.$node.css(styleSettings);
 };

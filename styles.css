@@ -12,7 +12,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .carltonButton, .mjButton, .catButton, .lineUp{
+.title, .addDancerButton, .carltonButton, .mjButton, .catButton, .lineUp, .partnerUp{
   padding:5px 12px;
   float:right;
 }
@@ -49,7 +49,7 @@ body, a:link, a:visited, a:active{
 
 .carlton{
   position: absolute;
-  transform: translate(-50%, -50%);
+  /*transform: translate(-50%, -50%);*/
 }
 
 .line{

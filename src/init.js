@@ -70,7 +70,6 @@ $(document).ready(function() {
     $('body').append(MJ.$node);
   });
   
-  
   $('.catButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('cat-maker-function-name'); 
     console.log(dancerMakerFunctionName);
@@ -87,19 +86,36 @@ $(document).ready(function() {
     $('body').append(cat.$node);
   });
 
-  $(document).mousemove(function(event) {
-    $('.carlton').css('left', (event.pageX - 150) + 'px');
-    $('.carlton').css('top', (event.pageY - 150) + 'px');
-  });
+  // $(document).mousemove(function(event) {
+  //   $('.carlton').css('left', (event.pageX - 150) + 'px');
+  //   $('.carlton').css('top', (event.pageY - 150) + 'px');
+  // });
 
   $('.lineUp').on('click', function(event) {
-    debugger;
-    // $('.line').css('display', 'inline-block');
-    console.log(window.dancers);
     window.dancers.forEach(function(dancer, i) {
-      console.log('inside', dancer, i);
-      dancer.lineUp(i);
+      dancer.lineUp();
+    });
+  });
+  
+  $('.partnerUp').on('click', function(event) {
+    window.dancers.forEach(function(dancer, i) {
+      var partner = window.dancers[i + 1];
+      if (partner !== undefined) {
+        var position = pythaTheory(dancer.left, partner.left, dancer.top, partner.top);
+        if (position <= 600) {
+          dancer.partnerUp();
+          partner.partnerUp();
+        }
+      }
     });
   });
 });
+
+var pythaTheory = function(x1, x2, y1, y2) {
+  var a = Math.pow((x2 - x1), 2);
+  var b = Math.pow((y2 - y1), 2);
+  var c = Math.sqrt(a + b);
+  
+  return Math.floor(c);
+};
 
