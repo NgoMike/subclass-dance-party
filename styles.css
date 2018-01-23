@@ -3,13 +3,16 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  background-image: url("tenor.gif");
+  background-size: cover;
+/*  background-color:#444;*/
   font-size: 18px;
+  overflow: hidden;
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .carltonButton, .mjButton{
+.title, .addDancerButton, .carltonButton, .mjButton, .catButton{
   padding:5px 12px;
   float:right;
 }
@@ -20,13 +23,20 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer, .MJ{
+.dancer{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
 }
 
-.MJ {
+.cat{
+  border:10px;
+  border-radius:10px;
+  position:absolute;
+  animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)};
+}
+
+.MJ{
   transform: translateY(100%);
   border:10px;
   border-radius:10px;
@@ -35,4 +45,4 @@ body, a:link, a:visited, a:active{
 
 .MJ:hover {
   transition: transform 300ms ease-in-out;
-}
+} 

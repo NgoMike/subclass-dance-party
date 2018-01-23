@@ -69,5 +69,22 @@ $(document).ready(function() {
     window.dancers.push(MJ);
     $('body').append(MJ.$node);
   });
+  
+  
+  $('.catButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('cat-maker-function-name'); 
+    console.log(dancerMakerFunctionName);
+    var dancerMakerFunction = window[dancerMakerFunctionName]; 
+
+    var cat = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
+    cat.step();
+    cat.setPosition();
+    window.dancers.push(cat);
+    $('body').append(cat.$node);
+  });
 });
 
