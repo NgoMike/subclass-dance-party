@@ -9,7 +9,7 @@ body{
 body, a:link, a:visited, a:active{
   color: lightblue;
 }
-.title, .addDancerButton, .carltonButton{
+.title, .addDancerButton, .carltonButton, .mjButton{
   padding:5px 12px;
   float:right;
 }
@@ -20,8 +20,19 @@ body, a:link, a:visited, a:active{
 .title{
   background-color: #777;
 }
-.dancer, .carlton{
+.dancer, .MJ{
   border:10px solid red;
   border-radius:10px;
   position:absolute;
+}
+
+.MJ {
+  transform: translateY(100%);
+  border:10px;
+  border-radius:10px;
+  position:absolute;
+}
+
+.MJ:hover {
+  transition: transform 300ms ease-in-out;
 }

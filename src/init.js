@@ -33,11 +33,11 @@ $(document).ready(function() {
     console.log(dancer.oldStep);
     dancer.step();
     dancer.setPosition();
+    window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
 
   $('.carltonButton').on('click', function(event) {
-    debugger;
     var dancerMakerFunctionName = $(this).data('carlton-maker-function-name'); 
     console.log(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName]; 
@@ -49,7 +49,25 @@ $(document).ready(function() {
     );
     carlton.step();
     carlton.setPosition();
+    window.dancers.push(carlton);
     $('body').append(carlton.$node);
+  });
+
+
+  $('.mjButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('mj-maker-function-name'); 
+    console.log(dancerMakerFunctionName);
+    var dancerMakerFunction = window[dancerMakerFunctionName]; 
+
+    var MJ = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
+    MJ.step();
+    MJ.setPosition();
+    window.dancers.push(MJ);
+    $('body').append(MJ.$node);
   });
 });
 
