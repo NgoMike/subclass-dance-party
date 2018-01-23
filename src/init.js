@@ -37,6 +37,7 @@ $(document).ready(function() {
   });
 
   $('.carltonButton').on('click', function(event) {
+    debugger;
     var dancerMakerFunctionName = $(this).data('carlton-maker-function-name'); 
     console.log(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName]; 
@@ -46,6 +47,9 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
+    carlton.step();
+    carlton.setPosition();
+    $('body').append(carlton.$node);
   });
 });
 

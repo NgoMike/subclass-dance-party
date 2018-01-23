@@ -5,10 +5,10 @@
 // make prototype for slides Up and down toggle
 
 var makeCarltonDancer = function(top, left, timeBetweenSteps) {
-  debugger;
+  // debugger;
   makeDancer.call(this, top, left, timeBetweenSteps);
   this.oldStep = makeDancer.prototype.step;
-  this.$node = $('<img src="../gifs/carlton.gif" alt="carltonAlt">');
+  this.$node = $('<img src="./gifs/carlton.gif" class="carlton" alt="carltonAlt">');
 };
 
 makeCarltonDancer.prototype = Object.create(makeDancer.prototype);
@@ -16,5 +16,5 @@ makeCarltonDancer.prototype.constructor = makeCarltonDancer;
 
 makeCarltonDancer.prototype.step = function() {
   this.oldStep();
-  this.$node.slideToggle();
+  this.$node.slideToggle(1000);
 };
