@@ -16,18 +16,36 @@ $(document).ready(function() {
      * to the stage.
      */
     var dancerMakerFunctionName = $(this).data('dancer-maker-function-name');
+    // console.log(dancerMakerFunctionName);
 
     // get the maker function for the kind of dancer we're supposed to make
     var dancerMakerFunction = window[dancerMakerFunctionName];
+    // console.log(dancerMakerFunction);
 
     // make a dancer with a random position
 
-    var dancer = dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+    var dancer = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
       Math.random() * 1000
     );
+    // debugger;
+    console.log(dancer.oldStep);
+    dancer.step();
+    dancer.setPosition();
     $('body').append(dancer.$node);
+  });
+
+  $('.carltonButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('carlton-maker-function-name'); 
+    console.log(dancerMakerFunctionName);
+    var dancerMakerFunction = window[dancerMakerFunctionName]; 
+
+    var carlton = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
   });
 });
 
