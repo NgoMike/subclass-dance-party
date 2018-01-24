@@ -22,10 +22,12 @@
 
 var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // create constructor of the call makedancer
+  // this = Object.create(makeBlinkyDancer.prototype)
   // takes same params
   // debugger;
   makeDancer.call(this, top, left, timeBetweenSteps);
-  this.oldStep = makeDancer.prototype.step;
+  // this.oldStep = makeDancer.prototype.step;
+  // return this
 };
 
 
@@ -34,10 +36,12 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 // set the constructor
 // then set prototype step method
 makeBlinkyDancer.prototype = Object.create(makeDancer.prototype);
+
 makeBlinkyDancer.prototype.constructor = makeBlinkyDancer;
 // makeBlinkyDancer.prototype.oldStep = makeDancer.prototype.step;
 makeBlinkyDancer.prototype.step = function() {
-  this.oldStep();
+  makeDancer.prototype.step.call(this);
+  // this.oldStep();
   this.$node.toggle();
 };
 

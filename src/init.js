@@ -29,17 +29,15 @@ $(document).ready(function() {
       $('body').width() * Math.random(),
       Math.random() * 1000
     );
-    // debugger;
-    console.log(dancer.oldStep);
-    dancer.step();
-    dancer.setPosition();
+
+    // dancer.step();
+    // dancer.setPosition();
     window.dancers.push(dancer);
     $('body').append(dancer.$node);
   });
 
   $('.carltonButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('carlton-maker-function-name'); 
-    console.log(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName]; 
 
     var carlton = new dancerMakerFunction(
@@ -56,7 +54,6 @@ $(document).ready(function() {
 
   $('.mjButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('mj-maker-function-name'); 
-    console.log(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName]; 
 
     var MJ = new dancerMakerFunction(
@@ -72,7 +69,6 @@ $(document).ready(function() {
   
   $('.catButton').on('click', function(event) {
     var dancerMakerFunctionName = $(this).data('cat-maker-function-name'); 
-    console.log(dancerMakerFunctionName);
     var dancerMakerFunction = window[dancerMakerFunctionName]; 
 
     var cat = new dancerMakerFunction(
@@ -86,10 +82,25 @@ $(document).ready(function() {
     $('body').append(cat.$node);
   });
 
-  // $(document).mousemove(function(event) {
-  //   $('.carlton').css('left', (event.pageX - 150) + 'px');
-  //   $('.carlton').css('top', (event.pageY - 150) + 'px');
-  // });
+  $('.kenButton').on('click', function(event) {
+    var dancerMakerFunctionName = $(this).data('ken-maker-function-name'); 
+    var dancerMakerFunction = window[dancerMakerFunctionName]; 
+
+    var ken = new dancerMakerFunction(
+      $('body').height() * Math.random(),
+      $('body').width() * Math.random(),
+      Math.random() * 1000
+    );
+    ken.step();
+    ken.setPosition();
+    window.dancers.push(ken);
+    $('body').append(ken.$node);
+  });
+
+  $(document).mousemove(function(event) {
+    $('.ken').css('left', (event.pageX - 150) + 'px');
+    $('.ken').css('top', (event.pageY - 150) + 'px');
+  });
 
   $('.lineUp').on('click', function(event) {
     window.dancers.forEach(function(dancer, i) {
@@ -109,13 +120,13 @@ $(document).ready(function() {
       }
     });
   });
-});
 
-var pythaTheory = function(x1, x2, y1, y2) {
-  var a = Math.pow((x2 - x1), 2);
-  var b = Math.pow((y2 - y1), 2);
-  var c = Math.sqrt(a + b);
-  
-  return Math.floor(c);
-};
+  var pythaTheory = function(x1, x2, y1, y2) {
+    var a = Math.pow((x2 - x1), 2);
+    var b = Math.pow((y2 - y1), 2);
+    var c = Math.sqrt(a + b);
+    
+    return Math.floor(c);
+  };
+});
 
