@@ -26,6 +26,7 @@ var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
   // takes same params
   // debugger;
   makeDancer.call(this, top, left, timeBetweenSteps);
+  // this.$node = $('<span class="dancer"><img src="./gifs/pikachu.gif"/></span>');
   // this.oldStep = makeDancer.prototype.step;
   // return this
 };

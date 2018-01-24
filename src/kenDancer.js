@@ -8,5 +8,5 @@ makeKenDancer.prototype.constructor = makeKenDancer;
 
 makeKenDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
-  this.$node.slideToggle(100);
+  this.$node.slideToggle(1000);
 };
